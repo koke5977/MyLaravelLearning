@@ -10,4 +10,9 @@ class Student extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
+
+    public function lesson()
+    {
+        return $this->hasMany(Lesson::class);
+    }
 }

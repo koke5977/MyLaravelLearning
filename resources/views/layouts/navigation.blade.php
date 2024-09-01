@@ -5,6 +5,9 @@
             <div class="flex">
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('lessons.index')" :active="request()->routeIs('lessons.index')">
+                        授業一覧
+                    </x-nav-link>
                     <x-nav-link :href="route('teachers.index')" :active="request()->routeIs('teachers.index')">
                         教師一覧
                     </x-nav-link>
@@ -13,6 +16,9 @@
                     </x-nav-link>
                     <x-nav-link :href="route('subjects.index')" :active="request()->routeIs('subjects.index')">
                         科目一覧
+                    </x-nav-link>
+                    <x-nav-link :href="route('histories.index')" :active="request()->routeIs('histories.index')">
+                        履歴
                     </x-nav-link>
                 </div>
             </div>
@@ -66,6 +72,9 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('lessons.index')" :active="request()->routeIs('lessons.index')">
+                教師一覧
+            </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('teachers.index')" :active="request()->routeIs('teachers.index')">
                 教師一覧
             </x-responsive-nav-link>
@@ -74,6 +83,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('subjects.index')" :active="request()->routeIs('subjects.index')">
                 科目一覧
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('histories.index')" :active="request()->routeIs('histories.index')">
+                履歴
             </x-responsive-nav-link>
         </div>
 
