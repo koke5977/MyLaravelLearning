@@ -6,9 +6,17 @@ use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Services\CheckFormService;
 use App\Http\Requests\StoreStudentRequest;
+use App\Services\StudentService;
 
 class StudentController extends Controller
 {
+    protected $studentService;
+
+    public function __construct(StudentService $studentService)
+    {
+        $this->studentService = $studentService;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -51,10 +59,15 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      */
+    // public function show(string $id)
+    // {
+    //     $student = Student::find($id);
+
+    //     return view('students.show', compact('student'));
+    // }
     public function show(string $id)
     {
-        $student = Student::find($id);
-
+        $student = $this->studentService->getStudent($id);
         return view('students.show', compact('student'));
     }
 
