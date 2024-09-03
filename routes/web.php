@@ -8,6 +8,7 @@ use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\HistoryController;
+use App\Http\Middleware\LogMiddleware;
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', function () {
@@ -38,7 +39,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('/{id}/destroy', 'destroy')->name('destroy');
         });
 
-    Route::resource('students', StudentController::class);
+    Route::resource('students', StudentController::class)->middleware(LogMiddleware::class);
     Route::resource('subjects', SubjectController::class);
     Route::resource('teachers', TeacherController::class);
     Route::resource('lessons', LessonController::class);
